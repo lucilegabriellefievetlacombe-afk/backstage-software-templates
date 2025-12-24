@@ -3,9 +3,9 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: php-template
-  title: PHP Plugin Laravel and CLI template
-  description: Provisions a mini PHP Plugin Laravel and CLI Appli
+  name: java-blade-template
+  title: Java Plugin Blade and CLI template
+  description: Provisions a mini Java Plugin Blade and CLI Appli
   owner: dev-team
   type: service
 

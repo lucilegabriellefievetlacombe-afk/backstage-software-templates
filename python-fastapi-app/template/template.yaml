@@ -3,9 +3,9 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: td-template
-  title: TypeScript Plugin Nest.JS and CLI template
-  description: Provisions a mini TypeScript Plugin Nest.JS and CLI Appli
+  name: python-fastapi-template
+  title: Python Plugin FastAPI and CLI template
+  description: Provisions a mini Python Plugin FastAPI and CLI Appli
   owner: dev-team
   type: service
 

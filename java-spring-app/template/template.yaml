@@ -3,9 +3,9 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: rust-template
-  title: Rust Plugin Axum and CLI template
-  description: Provisions a mini Rust Plugin Axum and CLI Appli
+  name: java-spring-template
+  title: Java Plugin Spring and CLI template
+  description: Provisions a mini Java Plugin Spring and CLI Appli
   owner: dev-team
   type: service
 

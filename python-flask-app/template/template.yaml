@@ -3,9 +3,9 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: go-template
-  title: Go Plugin Gin and CLI template
-  description: Provisions a mini Go Plugin Gin and CLI Appli
+  name: python-flask-template
+  title: Python Plugin Flask and CLI template
+  description: Provisions a mini Python Plugin Flask and CLI Appli
   owner: dev-team
   type: service
 

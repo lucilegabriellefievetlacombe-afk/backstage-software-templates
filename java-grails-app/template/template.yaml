@@ -3,9 +3,9 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 # some metadata about the template itself
 metadata:
-  name: python-template
-  title: Python Plugin Flask and CLI template
-  description: Provisions a mini Python Plugin Flask and CLI Appli
+  name: java-grails-template
+  title: Java Plugin Grails and CLI template
+  description: Provisions a mini Java Plugin Grails and CLI Appli
   owner: dev-team
   type: service
 
