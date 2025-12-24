@@ -1,2 +1,3 @@
 # backstage-software-templates
-Backstage Templates for application creation 
+
+Backstage Templates for application creation.
