@@ -6,6 +6,7 @@ metadata:
   name: python-flask-template
   title: Python Plugin Flask and CLI template
   description: Provisions a mini Python Plugin Flask and CLI Appli
+spec:
   owner: dev-team
   type: service
 
@@ -94,6 +95,7 @@ metadata:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
+
 
 
 
