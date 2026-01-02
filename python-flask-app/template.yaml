@@ -38,13 +38,13 @@ spec:
           items:
             type: string
             enum:
-              - 1.1_features_for_develop_branch
-              - 1.2_bugfix_for_develop_branch
-              - 1.3_refactos_for_develop_branch
-              - 2_integration_in_develop_branch_for_QA_tests
-              - 3.1_PPD_versions_for_system_tests
-              - 3.2_hotfix_for_PROD
-              - 4_PROD
+              - features_for_develop_branch
+              - bugfix_for_develop_branch
+              - refactos_for_develop_branch
+              - integration_in_develop_branch_for_QA_tests
+              - PPD_versions_for_system_tests
+              - hotfix_for_PROD
+              - PROD
           uniqueItems: false
           ui:widget: checkboxes
         owner:
@@ -95,6 +95,7 @@ spec:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
+
 
 
 
