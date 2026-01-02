@@ -37,15 +37,24 @@ spec:
           description: The environments where we deploy
           items:
             type: string
+            default: gp2
             enum:
-              - features_for_develop_branch
-              - bugfix_for_develop_branch
-              - refactos_for_develop_branch
-              - integration_in_develop_branch_for_QA_tests
-              - PPD_versions_for_system_tests
-              - hotfix_for_PROD
-              - PROD
-          uniqueItems: false
+              - feat
+              - fix
+              - refacto
+              - integ
+              - version
+              - hotfix
+              - prod
+            enumNames:
+              - 'feature_xxx branchs - from and to be merged in develop branch'
+              - 'fix_xxx branchs - from and to be merged in develop branch'
+              - 'refacto_xxx branchs - from and to be merged in develop branch'
+              - 'develop branch - uniq integration branch for QA Tests in QA env'
+              - 'pre-release version_X.Y.0-alpha branchs - from validated develop branch, for System Major or Minor Versions Tests in PPD'
+              - 'hotfix version_x.y.Z branchs - from last version branch, for Rapid System Patch Tests in PPD'
+              - 'release version_x.y.z branch - from last validated version or hotfix branch in PROD'
+          uniqueItems: true
           ui:widget: checkboxes
         owner:
           title: Owner
@@ -95,6 +104,7 @@ spec:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
+
 
 
 
