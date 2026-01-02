@@ -1,4 +1,5 @@
-        - parameters.component_id
-        - name
-        - environments
-        - owner
+component id : ${{app_name}}
+environements : ${{app_env}}
+name: ${{ name }}
+owner: ${{ owner }}
+
