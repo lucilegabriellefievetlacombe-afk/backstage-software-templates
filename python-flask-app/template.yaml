@@ -84,8 +84,6 @@ spec:
       name: Publish
       action: publish:github
       input:
-        allowedHosts:
-          - github.com
         description: This is ${{ parameters.component_id }}
         repoUrl: github.com?owner=lucilegabriellefievetlacombe-afk&repo=${{parameters.component_id}}
         protectDefaultBranch: false
@@ -106,6 +104,7 @@ spec:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
+
 
 
 
