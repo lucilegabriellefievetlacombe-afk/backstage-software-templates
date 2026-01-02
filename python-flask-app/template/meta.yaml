@@ -1,5 +1,6 @@
-component id : ${{app_name}}
-environements : ${{app_env}}
-name: ${{ name }}
-owner: ${{ owner }}
+name: ${{values.name}}
+component id : ${{values.app_name}}
+environements : ${{values.app_env}}
+owner: ${{values.owner}}
+
 
