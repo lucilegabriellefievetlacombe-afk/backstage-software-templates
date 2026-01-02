@@ -20,14 +20,14 @@ spec:
         - owner
       properties:
         component_id:
-          title: Component name
+          title: Component Uniq Id
           type: string
-          description: Provide a uniq component (microservice) id
+          description: Provide a uniq component (microservice) id in kebab case
           pattern: '^([A-Z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$'
         name:
           title: Name
           type: string
-          description: Unique name of the component
+          description: Unique User Friendly name of the component
           ui:autofocus: true
           ui:options:
             rows: 5
@@ -95,6 +95,7 @@ spec:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
+
 
 
 
