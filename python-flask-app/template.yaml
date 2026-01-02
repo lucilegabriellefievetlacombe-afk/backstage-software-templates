@@ -11,6 +11,8 @@ spec:
   type: service
 
   # these are the steps which are rendered in the frontend with the form input
+  # Invalid input passed to action publish:github, instance.protectDefaultBranch is not of a type(s) boolean, 
+  # instance is not allowed to have the additional property "allowedHosts"
   parameters:
     - title: Fill in some steps
       required:
@@ -86,7 +88,7 @@ spec:
           - github.com
         description: This is ${{ parameters.component_id }}
         repoUrl: github.com?owner=lucilegabriellefievetlacombe-afk&repo=${{parameters.component_id}}
-        protectDefaultBranch: 'main'
+        protectDefaultBranch: false
         repoVisibility: public
 
     - id: register
@@ -104,6 +106,7 @@ spec:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
+
 
 
 
