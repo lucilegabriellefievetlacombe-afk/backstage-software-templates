@@ -54,8 +54,7 @@ metadata:
           ui:options:
             catalogFilter:
               kind: Group
-
-
+              
   # here's the steps that are executed in series in the scaffolder backend
   steps:
     - id: fetchBase
@@ -95,5 +94,6 @@ metadata:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
+
 
 
