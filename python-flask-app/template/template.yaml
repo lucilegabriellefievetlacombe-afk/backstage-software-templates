@@ -22,12 +22,17 @@ metadata:
           description: Provide a component (microservice) name
           pattern: '^([A-Z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$'
         environment:
-          title: Deployment Environment
+          title: Deployment Environments
           type: string
-          description: the environment we deploy
+          description: The environments where we deploy
           enum:
-            - intranet
-            - extranet
+            - 1_features_for_develop_branch
+            - 2_bugfix_for_develop_branch
+            - 3_refactos_for_develop_branch
+            - 4_integration_in_develop_branch_for_QA_tests
+            - 5_PPD_versions_for_system_tests
+            - 6_hotfix_for_PROD
+            - 7_PROD
         name:
           title: Name
           type: string
