@@ -1,0 +1,4 @@
+        - parameters.component_id
+        - name
+        - environments
+        - owner
