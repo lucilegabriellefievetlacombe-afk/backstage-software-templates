@@ -14,8 +14,8 @@ metadata:
     - title: Fill in some steps
       required:
         - component_id
-        - environment
         - name
+        - environments
         - owner
       properties:
         component_id:
@@ -23,18 +23,6 @@ metadata:
           type: string
           description: Provide a uniq component (microservice) id
           pattern: '^([A-Z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$'
-        environment:
-          title: Deployment Environments
-          type: string
-          description: The environments where we deploy
-          enum:
-            - 1_features_for_develop_branch
-            - 2_bugfix_for_develop_branch
-            - 3_refactos_for_develop_branch
-            - 4_integration_in_develop_branch_for_QA_tests
-            - 5_PPD_versions_for_system_tests
-            - 6_hotfix_for_PROD
-            - 7_PROD
         name:
           title: Name
           type: string
@@ -42,6 +30,22 @@ metadata:
           ui:autofocus: true
           ui:options:
             rows: 5
+        environments:
+          title: Deployment Environments
+          type: array
+          description: The environments where we deploy
+          items:
+            type: string
+            enum:
+              - 1.1_features_for_develop_branch
+              - 1.2_bugfix_for_develop_branch
+              - 1.3_refactos_for_develop_branch
+              - 2_integration_in_develop_branch_for_QA_tests
+              - 3.1_PPD_versions_for_system_tests
+              - 3.2_hotfix_for_PROD
+              - 4_PROD
+          uniqueItems: false
+          ui:widget: checkboxes
         owner:
           title: Owner
           type: string
@@ -73,7 +77,7 @@ metadata:
           - github.com
         description: This is ${{ parameters.component_id }}
         repoUrl: github.com?owner=lucilegabriellefievetlacombe-afk&repo=${{parameters.component_id}}
-        protectDefaultBranch: false
+        protectDefaultBranch: 'main'
         repoVisibility: public
 
     - id: register
@@ -91,4 +95,5 @@ metadata:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
+
 
