@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.uid}}
+  description: ${{values.name}} that displays grettings.
+  annotations:
+    github.com/project-slug: lucilegabriellefievetlacombe-afk/${{values.owner}}-${{values.uid}}
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  owner: dev-team
+  lifecycle: experimental
