@@ -11,8 +11,6 @@ spec:
   type: service
 
   # these are the steps which are rendered in the frontend with the form input
-  # Invalid input passed to action publish:github, instance.protectDefaultBranch is not of a type(s) boolean, 
-  # instance is not allowed to have the additional property "allowedHosts"
   parameters:
     - title: Fill in some steps
       required:
@@ -39,15 +37,15 @@ spec:
           description: The environments where we deploy
           items:
             type: string
-            default: gp2
+            default: feat
             enum:
               - feat
               - fix
               - refacto
               - integ
-              - version
+              - alpha
               - hotfix
-              - prod
+              - release
             enumNames:
               - 'feature_xxx branchs - from and to be merged in develop branch'
               - 'fix_xxx branchs - from and to be merged in develop branch'
@@ -55,7 +53,7 @@ spec:
               - 'develop branch - uniq integration branch for QA Tests in QA env'
               - 'pre-release version_X.Y.0-alpha branchs - from validated develop branch, for System Major or Minor Versions Tests in PPD'
               - 'hotfix version_x.y.Z branchs - from last version branch, for Rapid System Patch Tests in PPD'
-              - 'release version_x.y.z branch - from last validated version or hotfix branch in PROD'
+              - 'main branch with release_x.y.z tags - from last validated version or hotfix branch in PROD'
           uniqueItems: true
           ui:widget: checkboxes
         owner:
@@ -75,8 +73,8 @@ spec:
       input:
         url: ./template
         values:
-          app_name: ${{parameters.component_id}}
-          app_env: ${{parameters.environment}}
+          uid:  ${{parameters.component_id}}
+          environements : ${{parameters.environments}}
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
 
@@ -86,6 +84,7 @@ spec:
       input:
         description: This is ${{ parameters.name }}
         repoUrl: github.com?owner=lucilegabriellefievetlacombe-afk&repo=${{parameters.component_id}}
+        defaultBranch: 'main'
         protectDefaultBranch: false
         repoVisibility: public
 

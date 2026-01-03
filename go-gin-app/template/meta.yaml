@@ -2,5 +2,3 @@ name: ${{values.name}}
 component uid : ${{values.uid}}
 environements : ${{values.environements}}
 owner: ${{values.owner}}
-
-
