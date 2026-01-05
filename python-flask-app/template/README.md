@@ -9,23 +9,25 @@
 
 [DOC](docs/index.md)
 
-## TeamZ
+## **ZAT** - **Z**en  **A**gile **T**eam
 
-### PO - Product Owner :
+### **POZ** - **P**roduct **O**wner **Z**en:
 
-* Final Product Responsable - decide how the product must work for final users.
+Final Product Responsable - decide how the product must work for final users.
+
 * **Functional Specifications Redaction** :
-  * Responsable for general & detail functional specifications.
-  * Responsable for detail functional specification.
-  * Take in account technical specifications.
+  * Responsable for general functional specifications.
+  * Responsable for detailed functional specifications.
+  * Take in account technical specification constraints and requirements.
 * **Manage Fonctional Epics and Milestones** (taking in account technicals necessities).
 * **Manage Requirements** :
-  * Organise functionnal & technical requirements :
+  * Organise functionnal requirements :
     * UID - **req-uid**
+      * UID nomenclature is linked to epics or specification and milestones in a way that does not creates doublon and faciltate understanding : ex BACK-LOGIN-ADMIN, FRONT-LOGIN-USER, BACK-ADD-CATALOG-ARTICLE, BACK-ADD-ARTICLE-IDENTIFICATION, BACK-ADD-ARTICLE-STOCK, FRONT-CUSTOMER-CART, FRONT-ARTICLE-VIEW, FRONT-ARTICLES-LIST.
     * Theme.
     * Related Epics.
     * Description.
-    * Related general specification version, chapter and section.
+    * Related general or detailed specification version, chapter and section.
     * Priority.
     * Risk.
     * Related MileStones.
@@ -38,7 +40,7 @@
   * Create **func-spec_*req-uid*-x** functional specification tasks.
     * Feature description :
       * Related general specification version, chapter and section.
-      * requirement uid.
+      * Requirement uid.
       * context : pages, user roles, action, entities, status-step-event.
       * what action ?
       * what result ?
@@ -66,7 +68,7 @@
   * Give the GO for **test automation** strategy, tactics and tasks.
   * Give the GO for **refactoring** strategy, tactics and tasks.
 
-### QA - Quality Assement :
+### **QAZ** - **Q**uality **A**ssement **Z**en :
 
 * Participate to the **functional testing automation** strategy and tactics with the maintainer.
 * Responsible for **acceptance tests** strategy, tactics and plan.
@@ -83,15 +85,16 @@
 * Create test automation tasks.
 * Share their automated tests with the dev-team (shifleft).
   
-### Maintainer or techlead :
+### **MAZ** - **M**aintainer **A**rchitect **Z**en:
 
 * **Best technical pratices advocate**.
 * **Lead the global technical specifications**.
   * Validate features technical specifications.
   * Anticipate and manage code conflicts or doublons.
 * **Manage Technical Epics and Milestones.**
-* **Organise technical requirements with PO** :
+* **Organise technical requirements (according to functional needs)** :
   * UID - **req-uid**
+    * UID nomenclature is linked to epics or specification and milestones in a way that does not creates doublon and faciltate understanding : ex AUTH-ADMIN, AUTH-CUSTOMER, LOG-USER-ACTIONS, LOG-CATALOG-EVENTS, LOG-ARTICLE-STOCK...
   * Theme.
   * Related Epics (all).
   * Description.
@@ -139,9 +142,10 @@
   * Validate refactoring strategy, tactics and priorities with the dev-team and PO.
   * Create refacto tasks.
   
-### developers:
+### **ZED** - **Z**en **E**xpert **D**evelopers:
 
 * **Best development practices advocate.**
+* Cultivate a particular domain of expertise (a language, orm, ia, bigdata, brocker...)
 * Help other developers.
 * Participate to tests automation and refactory strats and tactics.
 * Ask for cosy IDP, make practical proposals to the mainatiner.
@@ -194,7 +198,7 @@
   * Ask QA for automated test review.
   * Ask PO for automated test review.
 
-### GitOps :
+### GitOps:
 
 * **Best practices advocates.**
 * Help maintainer.
@@ -202,7 +206,7 @@
 * Help QA for test env. and automation.
 * Make IPD cosy with the maintainer.
 
-### Zen Agile Monk :
+### **ZAM** - **Z**en **A**gile **M**onk:
 
 * Ensure there is **no blame culture**.
 * **Agility Best Practices Advocate.**
