@@ -123,7 +123,7 @@ Final Product Responsable - decide how the product must work for final users.
       * If not any conflicts and regressions, it is merged.
       * If there is small conflicts the maintainer resolve them, pass tests and merge.
       * If another tasks made major conflicts :
-      * conflict task is created
+        * conflict task is created
         * **conflict_*req-uid*-x** subtask and branch is created
         * gitblame tel who will participate to this task
 * **Relases Deployment & MEP**
@@ -138,7 +138,7 @@ Final Product Responsable - decide how the product must work for final users.
   * Keep requirements test automation list.
   * Creates automation testing tasks.
 * **Refacto Lead**
-  * Creates refactoring strategy and tatics.
+  * Creates refactoring strategy and tactics.
   * Validate refactoring strategy, tactics and priorities with the dev-team and PO.
   * Create refacto tasks.
   
