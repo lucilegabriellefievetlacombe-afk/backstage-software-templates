@@ -22,12 +22,12 @@
 
 ## **TAZ** -  **T**eam **A**gile **Z**en
 
-[**POZ** - **P**roduct **O**wner **Z**en](#poz---product-owner-zen) |
-[**QAZ** - **Q**uality **A**ssement **Z**en](#qaz---quality-assement-zen) |
-[**MAZ** - **M**aintainer **A**rchitect **Z**en](#maz---maintainer-architect-zen) |
-[**DEZ** - **D**evelopers **E**xpert **Z**en](#dez---developers-expert-zen) |
-[**GOZ** - **G**it**O**ps **Z**en](#goz-gitops-zen) |
-[**MAZ** - **M**onk **A**gile **Z**en](#maz---monk-agile-zen)
+[**POZ** - **P**roduct **O**wner](#poz---product-owner-zen) |
+[**QAZ** - **Q**uality **A**ssement](#qaz---quality-assement-zen) |
+[**MAZ** - **M**aintainer **A**rchitect](#maz---maintainer-architect-zen) |
+[**DEZ** - **D**evelopers **E**xpert](#dez---developers-expert-zen) |
+[**GOZ** - **G**it**O**ps](#goz-gitops-zen) |
+[**MAZ** - **M**onk **A**gile](#maz---monk-agile-zen)
 
 ### **POZ** - **P**roduct **O**wner **Z**en:
 
