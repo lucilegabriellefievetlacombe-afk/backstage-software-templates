@@ -8,7 +8,7 @@
     - [**QAZ** - **Q**uality **A**ssement **Z**en:](#qaz---quality-assement-zen)
     - [**MAZ** - **M**aintainer **A**rchitect **Z**en:](#maz---maintainer-architect-zen)
     - [**DEZ** - **D**evelopers **E**xpert **Z**en:](#dez---developers-expert-zen)
-    - [**GOZ** **G**it**O**ps **Z**en:](#goz-gitops-zen)
+    - [**GOZ** - **G**it**O**ps **Z**en:](#goz---gitops-zen)
     - [**MAZ** - **M**onk **A**gile **Z**en:](#maz---monk-agile-zen)
 
 ## ${{values.uid}}
@@ -26,7 +26,7 @@
 [**QAZ** - **Q**uality **A**ssement **Z**en](#qaz---quality-assement-zen) |
 [**MAZ** - **M**aintainer **A**rchitect **Z**en](#maz---maintainer-architect-zen) |
 [**DEZ** - **D**evelopers **E**xpert **Z**en](#dez---developers-expert-zen) |
-[**GOZ** **G**it**O**ps **Z**en](#goz-gitops-zen) |
+[**GOZ** - **G**it**O**ps **Z**en](#goz-gitops-zen) |
 [**MAZ** - **M**onk **A**gile **Z**en](#maz---monk-agile-zen)
 
 ### **POZ** - **P**roduct **O**wner **Z**en:
@@ -246,7 +246,7 @@ Auto-organise in duo or trio mini task teams.
   * Ask PO validation for his automated deployed feature, if not trivial.
   * Ask the maintainer for code review.
 
-### **GOZ** **G**it**O**ps **Z**en:
+### **GOZ** - **G**it**O**ps **Z**en:
 
 DevOps using gitlab, advocate and implement best parctices. 
 
