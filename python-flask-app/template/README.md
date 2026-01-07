@@ -29,7 +29,7 @@
 
 ### Cycle
 
-1. Requirements overview and main epics identification.
+1. Fonctional Requirements overview and main epics identification.
 2. Cosy IDP with gitOps best practices.
 3. Business Glossary.
 4. General Functional Specifications:
@@ -37,7 +37,7 @@
    2. Use Cases.
    3. Story boards.
    4. CRC (Class, Responsibility, Collaborator) & Sequence diagrams.
-5. Technical Requirements, Specifications, Best Practices docs.
+5. Technical Requirements, Epics, Specifications, Best Practices docs.
 6. Requirements Prioritization & Risk estimation
 7. Sprints Iteration :
    1. User Stories (US) definition, CRC (Class, Responsibility, Collaborator) & raffinement.
