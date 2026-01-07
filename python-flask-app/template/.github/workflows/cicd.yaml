@@ -5,21 +5,28 @@ on:
     paths:
       - src/**
     branches:
-      - 'pocs/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?'
-      - 'features/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?'
-      - 'hardenings/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?'
-      - 'fix/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?'
-      - 'hotfix/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?'
-      - 'refactos/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?'
-      - 'releases/[0-9]+.[0-9]+.[0-9]+'
-      - 'hardenings/[0-9]+.[0-9]+.[0-9]+'
+      - 'poc/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      - 'feature/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      - 'fix/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      - 'hotfix/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      - 'refacto/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      - 'security/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      - 'ci/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      - 'test/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      - 'dependabot/*'
+      - 'renovate/*'
+      - 'perf/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      - 'chlore/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
       - develop
+      - 'release/[0-9]+.[0-9]+-alpha'
+      - 'release/[0-9]+.[0-9]+.[0-9]+'
+      - 'security/[0-9]+.[0-9]+.[0-9]+'
       - main
       - my_course_**
-      - 'v[0-9]+.[0-9]+.[0-9]+'
-      - '!releases/**-alpha'
+      - '!docs/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?'
       - '!**wip'
       - '!**WIP'
+      - '!**Wip'
 
 jobs:
   ci:
@@ -29,24 +36,24 @@ jobs:
       - name: Shorten commit id
         shell: bash
         run: |
-          github_sha_hash=${{ github.sha }}
-          github_sha_short="${github_sha_hash:0:7}"
-          echo "COMMIT_ID=${github_sha_short}" >> "$GITHUB_ENV"
+          github_sha_hash=${{'${{ github.sha }}'}}
+          github_sha_short="${{'${github_sha_hash:0:7}'}}"
+          echo "COMMIT_ID=${{'${github_sha_short}'}}" >> "${{'$GITHUB_ENV'}}"
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{'${{ secrets.DOCKERHUB_USERNAME }}'}}
+          password: ${{'${{ secrets.DOCKERHUB_TOKEN }}'}}
 
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: luspokvenus/python-app:${{ env.COMMIT_ID }}
+          tags: luspokvenus/python-app:${{'${{ env.COMMIT_ID }}'}}
 
     outputs:
-      commit_id: ${{ env.COMMIT_ID }}
+      commit_id: ${{'${{ env.COMMIT_ID }}'}}
 
   cd:
     needs: ci
