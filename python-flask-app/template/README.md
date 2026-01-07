@@ -29,7 +29,7 @@
 
 ### Cycle
 
-1. Fonctional Requirements overview and main epics identification.
+1. Fonctional requirements overview and main epics identification.
 2. Cosy IDP with gitOps best practices.
 3. Business Glossary.
 4. General Functional Specifications:
@@ -72,12 +72,12 @@
 
 ## **TAZ** -  **T**eam **A**gile **Z**en
 
-[**POMO** - **P**roduct **O**wner **M**ilestones **O**rchestrator:](#pomo---product-owner-milestones-orchestrator) | 
-[**QAAT** - **Q**uality **A**ssement **A**cceptance **T**ests:](#qaat---quality-assement-acceptance-tests) | 
-[**TAM** - **Technical**  **A**rchitect \& **M**aintainer:](#tam---technical--architect--maintainer) | 
-[**DEX** - **D**evelopers **EX**perts:](#dex---developers-experts) | 
-[**GitOps** - **G**it**O**ps:](#gitops---gitops) | 
-[**AgileMonk** - **A**gile **M**onk:](#agilemonk---agile-monk)
+[**POMO**](#pomo---product-owner-milestones-orchestrator) | 
+[**QAAT**](#qaat---quality-assement-acceptance-tests) | 
+[**TAM**](#tam---technical--architect--maintainer) | 
+[**DEX**](#dex---developers-experts) | 
+[**GitOps**](#gitops---gitops) | 
+[**AgileMonk**](#agilemonk---agile-monk)
 
 ### **POMO** - **P**roduct **O**wner & **M**ilestones **O**rchestrator:
 
