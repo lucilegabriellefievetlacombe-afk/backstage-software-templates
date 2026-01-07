@@ -5,6 +5,8 @@
   - [Application documentation](#application-documentation)
   - [Zen Programmin (ZP)](#zen-programmin-zp)
     - [Cycle](#cycle)
+    - [Values](#values)
+    - [Tactics](#tactics)
   - [**TAZ** -  **T**eam **A**gile **Z**en](#taz----team-agile-zen)
     - [**POMO** - **P**roduct **O**wner \& **M**ilestones **O**rchestrator:](#pomo---product-owner--milestones-orchestrator)
     - [**QAAT** - **Q**uality **A**ssement \& **A**cceptance **T**ests:](#qaat---quality-assement--acceptance-tests)
@@ -34,23 +36,39 @@
    1. Roles & Business Entities.
    2. Use Cases.
    3. Story boards.
-   4. CRC (Class, Responsibility, Collaborator) Sequence diagrams.
+   4. CRC (Class, Responsibility, Collaborator) & Sequence diagrams.
 5. Technical Requirements, Specifications, Best Practices docs.
 6. Requirements Prioritization & Risk estimation
 7. Sprints Iteration :
-   1. User Stories definition, CRC (Class, Responsibility, Collaborator) & raffinement.
+   1. User Stories (US) definition, CRC (Class, Responsibility, Collaborator) & raffinement.
    2. Tasks Prioritization & Risk estimation.
-   3. Realistic Developer eXperts pocker planning.
-   4. Daily Tierce Ceremonies Cosy Communication.
-   5. Continuous Task Validation & Delivery.
-   6. Continuous QAAT integration branch acceptance testing in QAL environment.
+   3. Realistic Developer-EXperts (DEX) pocker planning.
+   4. Tierce Daily Ceremonies Cosy Communication.
+   5. Continuous Task Validation & Delivery in user story (US) environement demonstartion (DEMO).
+   6. Continuous integration branch acceptance testing in qualification (QAL) environment.
    7. alpha-release validation phase:
-      1. DEX: Refactoring, vendors updates & code cleanning of integration branch.
-      2. QAAT: alpha-release acceptance testing (AT) in AT pre-production (PPD) environment.
-      3. TAM: alpha-release system testing (ST) in ST pre-production (PPD) environment .
+      1. Refactoring, vendors updates & code cleanning of integration branch.
+      2. alpha-release acceptance testing (AT) in AT pre-production (PPD) environment.
+      3. alpha-release system testing (ST) in ST pre-production (PPD) environment .
       4. publication in producton (PROD) environment.
    8. Retro & Team work valorization
 
+### Values
+
+1. Respect of all teams.
+2. Help each-others.
+3. Don't be afraid.
+4. Don't blame.
+
+### Tactics
+
+1. Auto organisation of developpers and experts for duo or trio programming.
+2. Repetitive task automation.
+3. One source of truth in one documentation.
+4. Simple and clear, not fuzzy, not duplicated specification.
+5. Test, try and refine.
+6. Don't blame, help, keep things simple and be clear.
+7. Give feed backs quickly.
 
 ## **TAZ** -  **T**eam **A**gile **Z**en
 
