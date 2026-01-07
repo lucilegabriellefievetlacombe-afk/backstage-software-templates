@@ -3,11 +3,13 @@
 - [${{values.name}}](#valuesname)
   - [${{values.uid}}](#valuesuid)
   - [Application documentation](#application-documentation)
+  - [Zen Programmin (ZP)](#zen-programmin-zp)
+    - [Cycle](#cycle)
   - [**TAZ** -  **T**eam **A**gile **Z**en](#taz----team-agile-zen)
-    - [**POMO** - **P**roduct **O**wner **M**ilestones **O**rchestrator:](#pomo---product-owner-milestones-orchestrator)
-    - [**QAAT** - **Q**uality **A**ssement **A**cceptance **T**ests:](#qaat---quality-assement-acceptance-tests)
-    - [**MainArchi** - **M**aintainer **A**rchitect:](#mainarchi---maintainer-architect)
-    - [**DevExp** - **D**evelopers **E**xpert:](#devexp---developers-expert)
+    - [**POMO** - **P**roduct **O**wner \& **M**ilestones **O**rchestrator:](#pomo---product-owner--milestones-orchestrator)
+    - [**QAAT** - **Q**uality **A**ssement \& **A**cceptance **T**ests:](#qaat---quality-assement--acceptance-tests)
+    - [**TAM** - **Technical**  **A**rchitect \& **M**aintainer:](#tam---technical--architect--maintainer)
+    - [**DEX** - **D**evelopers **EX**perts:](#dex---developers-experts)
     - [**GitOps** - **G**it**O**ps:](#gitops---gitops)
     - [**AgileMonk** - **A**gile **M**onk:](#agilemonk---agile-monk)
   - [Git Branchs](#git-branchs)
@@ -21,16 +23,45 @@
 
 [DOC](docs/index.md)
 
+## Zen Programmin (ZP)
+
+### Cycle
+
+1. Requirements overview and main epics identification.
+2. Cosy IDP with gitOps best practices.
+3. Business Glossary.
+4. General Functional Specifications:
+   1. Roles & Business Entities.
+   2. Use Cases.
+   3. Story boards.
+   4. CRC (Class, Responsibility, Collaborator) Sequence diagrams.
+5. Technical Requirements, Specifications, Best Practices docs.
+6. Requirements Prioritization & Risk estimation
+7. Sprints Iteration :
+   1. User Stories definition, CRC (Class, Responsibility, Collaborator) & raffinement.
+   2. Tasks Prioritization & Risk estimation.
+   3. Realistic Developer eXperts pocker planning.
+   4. Daily Tierce Ceremonies Cosy Communication.
+   5. Continuous Task Validation & Delivery.
+   6. Continuous QAAT integration branch acceptance testing in QAL environment.
+   7. alpha-release validation phase:
+      1. DEX: Refactoring, vendors updates & code cleanning of integration branch.
+      2. QAAT: alpha-release acceptance testing (AT) in AT pre-production (PPD) environment.
+      3. TAM: alpha-release system testing (ST) in ST pre-production (PPD) environment .
+      4. publication in producton (PROD) environment.
+   8. Retro & Team work valorization
+
+
 ## **TAZ** -  **T**eam **A**gile **Z**en
 
 [**POMO** - **P**roduct **O**wner **M**ilestones **O**rchestrator:](#pomo---product-owner-milestones-orchestrator) | 
 [**QAAT** - **Q**uality **A**ssement **A**cceptance **T**ests:](#qaat---quality-assement-acceptance-tests) | 
-[**MainArchi** - **M**aintainer **A**rchitect:](#mainarchi---maintainer-architect) | 
-[**DevExp** - **D**evelopers **E**xpert:](#devexp---developers-expert) | 
+[**TAM** - **Technical**  **A**rchitect \& **M**aintainer:](#tam---technical--architect--maintainer) | 
+[**DEX** - **D**evelopers **EX**perts:](#dex---developers-experts) | 
 [**GitOps** - **G**it**O**ps:](#gitops---gitops) | 
 [**AgileMonk** - **A**gile **M**onk:](#agilemonk---agile-monk)
 
-### **POMO** - **P**roduct **O**wner **M**ilestones **O**rchestrator:
+### **POMO** - **P**roduct **O**wner & **M**ilestones **O**rchestrator:
 
 Final Product Responsable - **Decide how the product must work for final users**.
 Supervise functional requirements, specification redaction and features tasks redaction.
@@ -106,7 +137,7 @@ Validate functional tasks understanding and implementation.
   * Give the GO for **test automation** strategy, tactics and tasks.
   * Give the GO for **refactoring** strategy, tactics and tasks.
 
-### **QAAT** - **Q**uality **A**ssement **A**cceptance **T**ests:
+### **QAAT** - **Q**uality **A**ssement & **A**cceptance **T**ests:
 
 QA Acceptance tests responsables - Validate applications are working and respects specifications.
 
@@ -125,9 +156,9 @@ QA Acceptance tests responsables - Validate applications are working and respect
 * Create test automation tasks.
 * Share their automated tests with the dev-team (shifleft).
   
-### **MainArchi** - **M**aintainer **A**rchitect:
+### **TAM** - **Technical**  **A**rchitect & **M**aintainer:
 
-Technical Maintainer & Architecte who lead the tech teams. Supervise good pratices enforcement and IDP improvements.
+Technical Maintainer & Architect who lead the tech teams. Supervise good pratices enforcement and IDP improvements.
 Decide for the global technical architectures and support technical teams for specifications and implementation.
 Supervise deployments automation in Feature Demo, QA, PPD and MEP environements.
 Manage code reviews, code update, merge request, merges and conflicts.
@@ -198,7 +229,7 @@ Manage code reviews, code update, merge request, merges and conflicts.
   * Create refactor tasks.
 * If CI/CD, performance optimizations or dependencies updates are needed some **ci/*RUID*-x** **perf/*RUID*-x** or **chlore/*RUID*-x** tasks and branchs might be created by the MA.
   
-### **DevExp** - **D**evelopers **E**xpert:
+### **DEX** - **D**evelopers **EX**perts:
 
 Developers and technical experts, responsable for their features technical specification and implementation.
 Validate specification redaction respect DoR.
@@ -308,12 +339,23 @@ DevOps using gitlab, advocate and implement best parctices.
 
 ### **AgileMonk** - **A**gile **M**onk:
 
-Master is a term that is abandonned in branch naming, it is remplaced by main branch.
+As Master is a term that is abandonned in branch naming, it should be avoid as role naming.
 In a team "Master" or "SM" sado mazo initials may attrack sadists or psycopaths.
 The flaccid scrum master is a sample of dramatic miss understanding of agile philosophy.
 Monk is better for the ego of an agile consultant.
-The Monk Agile, is a team builder and protector, it ensure the cosy spirit needed for best realisations.
+The Monk Agile, is a team builder and team protector, it ensure the cosy spirit needed for best realisations.
 
+* **The Agile monk conducts the ceremonies**:
+  * **Matins** With the POMO, the QAAT and the TAM.
+    * Back Log:
+      * Review Requirements and details specifications with the POMO and TAM ready for refinements.
+      * Review Tasks Priorities.
+    * Plan next **Refinement ceremony** with DEX or GitOps.
+    * Prepare external ceremonies with third party linked to the project (demo, presentation).
+  * The **Prime**: Prepare the **Daily ceremony** update tasks status, prepare questions, check pipelines.
+  * The **Tierce Daily ceremony** with DEX, DevOps, QAAT, POMO, TAM.
+  * The **None ceremony** : ensure none conflicts, blurs, resources need or blocking situations.
+  * The **CRC & refinement**, **planning poker** and **retro** **sprint** ceremonies.  
 * Ensure there is **no blame culture**.
 * **Agility Best Practices Advocate.**
   * Help for DoR, DoD and ceremony cycle elaboration.
