@@ -5,7 +5,7 @@
   - [Application documentation](#application-documentation)
   - [Zen Programmin (ZP)](#zen-programmin-zp)
     - [Cycle](#cycle)
-    - [Values](#values)
+    - [Attitude](#attitude)
     - [Tactics](#tactics)
   - [**TAZ** -  **T**eam **A**gile **Z**en](#taz----team-agile-zen)
     - [**POMO** - **P**roduct **O**wner \& **M**ilestones **O**rchestrator:](#pomo---product-owner--milestones-orchestrator)
@@ -53,12 +53,15 @@
       4. publication in producton (PROD) environment.
    8. Retro & Team work valorization
 
-### Values
+### Attitude
 
-1. Respect of all teams.
-2. Help each-others.
-3. Don't be afraid.
-4. Don't blame.
+1. Respectful
+2. Thoughtfulness
+3. Undertaking
+4. Positive
+5. Quiet strength
+6. Pragmatic
+7. Realist
 
 ### Tactics
 
@@ -343,7 +346,7 @@ Auto-organise in duo or trio mini task teams.
 
 ### **GitOps** - **G**it**O**ps:
 
-DevOps using gitlab, advocate and implement best parctices. 
+DevOps using gitlab, advocate and implement best practices.
 
 * **Best practices advocates.**
 * Help maintainer.
@@ -389,7 +392,7 @@ The Monk Agile, is a team builder and team protector, it ensure the cosy spirit 
 * CNV & Palo Alto practice lead.
 * **Team protector**:
   * Team building.
-  * Team needs identification, advocacy, resolution.
+  * Team needs identification, advocacy and resolution.
   * Check specifications are ready before realisation.
   * Check if IPD is cosy for the developers.
   * Verify time estimation is done freely.
