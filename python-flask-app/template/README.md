@@ -6,6 +6,7 @@
   - [Zen Programmin (ZP)](#zen-programmin-zp)
     - [Cycle](#cycle)
     - [Attitude](#attitude)
+    - [Strategy](#strategy)
     - [Tactics](#tactics)
   - [**TAZ** -  **T**eam **A**gile **Z**en](#taz----team-agile-zen)
     - [**POMO** - **P**roduct **O**wner \& **M**ilestones **O**rchestrator:](#pomo---product-owner--milestones-orchestrator)
@@ -13,8 +14,20 @@
     - [**TAM** - **Technical**  **A**rchitect \& **M**aintainer:](#tam---technical--architect--maintainer)
     - [**DEX** - **D**evelopers **EX**perts:](#dex---developers-experts)
     - [**GitOps** - **G**it**O**ps:](#gitops---gitops)
+    - [**SecOps** - **S**ec**O**ps:](#secops---secops)
     - [**AgileMonk** - **A**gile **M**onk:](#agilemonk---agile-monk)
+  - [Environments](#environments)
   - [Git Branchs](#git-branchs)
+  - [**General Functional Specifications:**](#general-functional-specifications)
+  - [**Technical Response**](#technical-response)
+    - [**General Technical Requirements**.](#general-technical-requirements)
+    - [**Main Epics**.](#main-epics)
+    - [**Technical choices strategy, tactic and criterias**.](#technical-choices-strategy-tactic-and-criterias)
+    - [**Main technical bedrock : tools and instruments choices**.](#main-technical-bedrock--tools-and-instruments-choices)
+    - [**General Technical Specifications**.](#general-technical-specifications)
+  - [**Main Milestones**](#main-milestones)
+  - [DoR (Definition of Ready)](#dor-definition-of-ready)
+  - [DoD (Definition of Done)](#dod-definition-of-done)
 
 ## ${{values.uid}}
 
@@ -27,31 +40,50 @@
 
 ## Zen Programmin (ZP)
 
+**TAZ** -  **T**eam **A**gile **Z**en:
+
+* [Developer & Experts team](#dex---developers-experts)
+* [Product Owner MileStones Ochestrator](#pomo---product-owner-milestones-orchestrator)
+* [Technical Architect & Maintainer ](#tam---technical--architect--maintainer)
+* [Quality & Acceptance Tests Team](#qaat---quality-assement-acceptance-tests)
+* [Agile Monk](#agilemonk---agile-monk)
+
 ### Cycle
 
-1. Fonctional requirements overview and main epics identification.
-2. Cosy IDP with gitOps best practices.
-3. Business Glossary.
-4. General Functional Specifications:
-   1. Roles & Business Entities.
-   2. Use Cases.
-   3. Story boards.
-   4. CRC (Class, Responsibility, Collaborator) & Sequence diagrams.
-5. Technical Requirements, Epics, Specifications, Best Practices docs.
-6. Requirements Prioritization & Risk estimation
-7. Sprints Iteration :
-   1. User Stories (US) definition, CRC (Class, Responsibility, Collaborator) & raffinement.
-   2. Tasks Prioritization & Risk estimation.
-   3. Realistic Developer-EXperts (DEX) pocker planning.
-   4. Tierce Daily Ceremonies Cosy Communication.
-   5. Continuous Task Validation & Delivery in user story (US) environement demonstartion (DEMO).
-   6. Continuous integration branch acceptance testing in qualification (QAL) environment.
-   7. alpha-release validation phase:
-      1. Refactoring, vendors updates & code cleanning of integration branch.
-      2. alpha-release acceptance testing (AT) in AT pre-production (PPD) environment.
-      3. alpha-release system testing (ST) in ST pre-production (PPD) environment .
-      4. publication in producton (PROD) environment.
-   8. Retro & Team work valorization
+1. **Gestation**
+   1. POMO & TAM
+      1. **Business Glossary & Acronyms** creation.
+      2. **General Fonctional Requirements** overview and **Main Epics** identification.
+      3. **Cosy IDP** bedrock with gitOps best practices.
+      4. [**General Functional Specifications:**](#general-functional-specifications)<details><summary>Actors, Use Cases, CRC, Workflows</summary>[General Functional Specifications Details](#general-functional-specifications)</details>
+      5. [**Technical Response**](#technical-response)<details><summary>General Requirements, Epics, Choices & Specification</summary>[Technical Response Details](#technical-response)</details>  
+      6. **Requirements Prioritization & Risk estimation**
+2. **Week Iterations** :
+   1. **Monday, tuesday, wednesday, thursday**:
+         1. DEX, POMO, TAM :
+            1. Tierce **Daily Ceremonies** with Cosy Communication.
+            2. **Continuous Task Validation & Delivery** in user story (US) environement demonstration (DEMO).
+         2. QAAT :
+            1. **Continuous acceptance testing** (AT) in qualification (QAL) environment (of develop integration branch).
+   2. **Thursday Release validation & publication phase**:
+      1. DEX : 
+         1. **Code cleanning**: refactoring, dependencies updates, security, perf, doc amelioration (of develop integration branch).
+      2. QAAT : 
+         1. **Alpha-release acceptance testing** (AT) in AT pre-production (PPD) environment.
+      3. TAM : 
+         1. **Alpha-release system testing** (ST) in ST pre-production (PPD) environment .
+         2. **Release publication in producton** (PROD) environment.
+   3. **Friday**
+      1. DEX, TAM & QAAT:
+         1. **Cleaned Code Validation**
+      2. POMO:
+         1. **User Stories (US) definition** & CRC (Class, Responsibility, Collaborator) & **raffinement**.
+         2. **Tasks Redaction, Prioritization & Risk estimation**.
+      3. DEX, POMO, TAM:
+         1. Realistic Developer-EXperts (DEX) - pocker planning - **Task time estimation**.
+      4. The whole team:
+         1. **Retro & Team work valorization**
+
 
 ### Attitude
 
@@ -63,6 +95,10 @@
 6. Pragmatic
 7. Realist
 
+### Strategy
+
+Think first, discuss, specify, try, adapt, deliver then simplify and document.
+
 ### Tactics
 
 1. Auto organisation of developpers and experts for duo or trio programming.
@@ -71,16 +107,13 @@
 4. Simple and clear, not fuzzy, not duplicated specification.
 5. Test, try and refine.
 6. Don't blame, help, keep things simple and be clear.
-7. Give feed backs quickly.
+7. Ask and give feed backs quickly.
 
 ## **TAZ** -  **T**eam **A**gile **Z**en
 
-[**POMO**](#pomo---product-owner-milestones-orchestrator) | 
-[**QAAT**](#qaat---quality-assement-acceptance-tests) | 
-[**TAM**](#tam---technical--architect--maintainer) | 
-[**DEX**](#dex---developers-experts) | 
-[**GitOps**](#gitops---gitops) | 
-[**AgileMonk**](#agilemonk---agile-monk)
+| | | | | | | |
+|---|---|---|---|---|---|---|
+| [**POMO**](#pomo---product-owner-milestones-orchestrator) | [**QAAT**](#qaat---quality-assement-acceptance-tests) | [**TAM**](#tam---technical--architect--maintainer) | [**DEX**](#dex---developers-experts) | [**GitOps**](#gitops---gitops) | [**SecOps**](#secops---secops) | [**AgileMonk**](#agilemonk---agile-monk) |
 
 ### **POMO** - **P**roduct **O**wner & **M**ilestones **O**rchestrator:
 
@@ -88,6 +121,8 @@ Final Product Responsable - **Decide how the product must work for final users**
 Supervise functional requirements, specification redaction and features tasks redaction.
 Schedule and orchestrate the project advancement.
 Validate functional tasks understanding and implementation.
+
+<details><summary>responsabilities</summary>
 
 * **Functional Specifications Redaction** :
   * Responsable for introduction and global project description.
@@ -151,16 +186,20 @@ Validate functional tasks understanding and implementation.
   * Give the GO for the new **Sprint**.
   * Give the GO for **features POC or development tasks** (after DoR ok).
   * Give the GO for **features code review** (after feature functional unit testing).
-  * Give the GO for **alpha release** with the QA (after QA has done acceptance tests).
+  * Give the GO for **alpha release** with the QAAT (after QAAT has done acceptance tests).
   * Give the GO for **MEP** with the maintainer (after maintainer systems tests in PPD).
   * Ask MEP potential rollback.
-  * Give the GO for **QA test** strategy, tactics and acceptance test plans.
+  * Give the GO for **QAAT test** strategy, tactics and acceptance test plans.
   * Give the GO for **test automation** strategy, tactics and tasks.
   * Give the GO for **refactoring** strategy, tactics and tasks.
 
+</details>
+
 ### **QAAT** - **Q**uality **A**ssement & **A**cceptance **T**ests:
 
-QA Acceptance tests responsables - Validate applications are working and respects specifications.
+Quality Accessment and Acceptance tests responsables - Validate applications are working and respects specifications.
+
+<details><summary>responsabilities</summary>
 
 * Participate to the **functional testing automation** strategy and tactics with the maintainer.
 * Responsible for **acceptance tests** strategy, tactics and plan.
@@ -170,21 +209,25 @@ QA Acceptance tests responsables - Validate applications are working and respect
   * Ask glossary term clarification, disambiguation and deduplication.
 * Ask fixtures for testing.
 * Validate acceptance testing plan with PO.
-* Make Acceptance tests (with requirements uid) in QA integration env.
+* Make Acceptance tests (with requirements uid) in QAL integration env.
 * **Validate** the integration develop branch (alpha release).
 * Open bug issues with the PO.
 * Give the **GO for alpha release** with the PO.
 * Create test automation tasks.
 * Share their automated tests with the dev-team (shifleft).
   
+</details>
+
 ### **TAM** - **Technical**  **A**rchitect & **M**aintainer:
 
 Technical Maintainer & Architect who lead the tech teams. Supervise good pratices enforcement and IDP improvements.
 Decide for the global technical architectures and support technical teams for specifications and implementation.
-Supervise deployments automation in Feature Demo, QA, PPD and MEP environements.
+Supervise deployments automation in Feature Demo, QAL, PPD and MEP environements.
 Manage code reviews, code update, merge request, merges and conflicts.
 
 *The merge conflicts might be a source of chaotic behaviours, the dev-team must be protected from conflicts. The mini-task-teams work evaluation must not be impacted by code conflicts. If work evaluation was impacted, it would permit conflict makers to look faster and more efficients than impacted ones.*
+
+<details><summary>responsabilities</summary>
 
 * **Best technical pratices advocate**.
 * **Lead the global technical specifications**.
@@ -211,12 +254,23 @@ Manage code reviews, code update, merge request, merges and conflicts.
   * Help developers to use IDP.
   * Help developers to solve technical difficulties.
   * Help developers for technical specifications redaction.
-  * Help QA to get adapted fixtures and cosy testing environements.
+  * Help QAAT to get adapted fixtures and cosy testing environements.
   * Help PO, participate to DoR and DoD with the dev-team.
 * **IDP Responsable** :
   * Set & check technical constraints.
   * GitOps or GitOps main contact.
   * Keep Internal Development Plateform cosy.
+* **Technical Tasks Redaction** :
+  * Validate the DoR and DoD with all the dev-team.
+  * Create **tech-spec/*RUID*-x** technical specification tasks.
+    * Feature description :
+      * Requirement uid selection should add :
+        * Ref & Link to RUID. 
+        * Related general specification version, chapter, section and **user story** link.
+        * Tests list and links.
+      * some fixtures and an example.
+    * Ensure the developers got a good understanding of the new features.
+    * Ensure there is no task duplicatas.
 * **Code review & Merge** :
   * Validate code reviews.
   * Merge features and fix in the develop integration branch (*).
@@ -233,15 +287,15 @@ Manage code reviews, code update, merge request, merges and conflicts.
   * Do or supervise creation and deployment of the alpha release branchs.
   * Do or supervise creation and deployment of the latest releases in PPD.
   * Do or Supervise system tests before MEP.
-  * Do or Supervise the MEP with the PO GO.
+  * Do or Supervise the MEP with the POMO GO.
 * **Hotfix**
-  * **hotfix/*RUID*-x** branch might be created from the main branch by the PO (from hotfix subtask creation).
+  * **hotfix/*RUID*-x** branch might be created from the main branch by the POMO (from hotfix subtask creation).
   * The maintainer supervise or resolve the hotfix and hot related MEP.
   * The corresponding fix task branch have been created from develop branch.
 * **TDD Lead**
   * Set the unit testing automation strategy and tactics with the dev-team.
-  * Set the functional testing automation strategy and tactics with the QA.
-  * Set the testing priority with the PO and the QA.
+  * Set the functional testing automation strategy and tactics with the QAAT.
+  * Set the testing priority with the POMO and the QAAT.
   * Keep requirements test automation list.
   * Creates automation testing tasks.
 * **Refactoring Lead**
@@ -250,12 +304,16 @@ Manage code reviews, code update, merge request, merges and conflicts.
   * Create refactor tasks.
 * If CI/CD, performance optimizations or dependencies updates are needed some **ci/*RUID*-x** **perf/*RUID*-x** or **chlore/*RUID*-x** tasks and branchs might be created by the MA.
   
+</details>
+
 ### **DEX** - **D**evelopers **EX**perts:
 
 Developers and technical experts, responsable for their features technical specification and implementation.
 Validate specification redaction respect DoR.
 Participate to the DoR and DoD elabration. Source of proposals for IDP, tasks board improvements and technologies choices.
 Auto-organise in duo or trio mini task teams.
+
+<details><summary>responsabilities</summary>
 
 * **Best development practices advocate.**
 * Cultivate a particular domain of expertise (a language, orm, ia, bigdata, brocker...)
@@ -281,14 +339,14 @@ Auto-organise in duo or trio mini task teams.
       * **conflict/*RUID*-x_*RUID*-y** the both task teams are responsible for resolution. 
     * If the RUID is the in test automation list
       * **test/*RUID*-x** subtask & branch is created.
-    * If the PO identify a bug, or get an issue from QA or hotfix is asked by the exploitation :
+    * If the POMO identify a bug, or get an issue from QAAT or hotfix is asked by the exploitation :
       * **fix/*RUID*-x** subtask & branch is created (By default the task goes to the mini team who is responsible for the feature).
     * If the RUID is the in the hardening list
       * **security/*RUID*-x** subtask & branch is created and attribued to devSec experts
   * Verifiy the develop branch is always globally functional and allow to start developments.
   * with POC :
     * POC on **poc/*RUID*-x** subtask & branch from develop (automatically created at adoption).
-    * Validate the poc with the PO and the Maintainer.
+    * Validate the poc with the POMO and the Maintainer.
     * Estimate task difficulty, risk level and time.
   * Add an additional unit test and valid it with the PO.
   * Make technical specifications on **docs/*RUID*-x** subtask & branch from develop .
@@ -306,7 +364,7 @@ Auto-organise in duo or trio mini task teams.
     * Develop the feature.
     * Pass the unit tests in a dev-test env automaticly deployed.
     * May update the feature branch, but only if it doesn't impact your code.
-  * Ask PO validation for his automated deployed feature.
+  * Ask POMO validation for his automated deployed feature.
     * Open new task if the fonctional spec is changed, re-check DoR, re-estimate.
   * Ask the maintainer for code review.
     * Make needed changes.
@@ -326,37 +384,61 @@ Auto-organise in duo or trio mini task teams.
 * If test automation is required :
   * **test/*RUID*-x** automation unit test subtask is created.
   * **test/*RUID*-x** branch is created.
-  * May ask QA for advices or help.
+  * May ask QAAT for advices or help.
   * May ask GitOps for help.
   * Develop the tests and organise needed fixtures.
-  * Ask QA for automated test review.
-  * Ask PO for automated test review.
+  * Ask QAAT for automated test review.
+  * Ask POMO for automated test review.
   * Ask the maintainer for code review.
   * If OK, branch is tagged OK_test_*RUID*-x, the test task is finished.
   * (The maintainer check updates and merge potentials conflicts)
-* If fix **fix/*RUID*-x** subtask is created by the PO :
+* If fix **fix/*RUID*-x** subtask is created by the POMO :
   * **fix/*RUID*-x** branch is created.
-  * May ask PO, QA or MA for advices or help.
+  * May ask PO, QAAT or MA for advices or help.
   * Fix it
-  * Ask PO validation for his automated deployed feature, if not trivial.
+  * Ask POMO validation for his automated deployed feature, if not trivial.
   * Ask the maintainer for code review.
   * If OK, branch is tagged OK_fix_*RUID*-x, the fix task is finished.
   * (The maintainer check updates and merge potentials conflicts)
 * If performance optimizations, dependencies updates are needed some **perf/*RUID*-x** or **chlore/*RUID*-x** tasks and branchs might be created.
 
+</details>
+
 ### **GitOps** - **G**it**O**ps:
 
 DevOps using gitlab, advocate and implement best practices.
 
+<details><summary>responsabilities</summary>
+
 * **Best practices advocates.**
-* Help maintainer.
+* Help maintainer for gitOps.
 * Help developers for test automation.
-* Help QA for test env. and automation.
+* Help QAAT for test env. and automation.
 * Make IPD cosy with the maintainer.
 * Help setting cyber security inside the CI/CD pipelines.
 * Communicate with DevOps, Infra et security teams.
 * CI/CD on **ci/*RUID*-x** task & branch from develop (automatically created at adoption).
 * dependabot/ renovate/ tasks observator and responsible
+
+</details>
+
+### **SecOps** - **S**ec**O**ps:
+
+SecOps advocate and implement best security practices.
+
+<details><summary>responsabilities</summary>
+
+* **Best security practices advocates.**
+* Help maintainer for security.
+* Help developers for security test automation.
+* Help QAAT for security test env. and automation.
+* Make IPD secure with the maintainer.
+* Help setting cyber security inside the CI/CD pipelines.
+* Communicate with GitOps, DevOps, Infra et security teams.
+* CI/CD on **secu/*RUID*-x** task & branch from develop (automatically created at adoption).
+* dependabot/ renovate/ tasks observator and security responsible
+
+</details>
 
 ### **AgileMonk** - **A**gile **M**onk:
 
@@ -365,6 +447,8 @@ In a team "Master" or "SM" sado mazo initials may attrack sadists or psycopaths.
 The flaccid scrum master is a sample of dramatic miss understanding of agile philosophy.
 Monk is better for the ego of an agile consultant.
 The Monk Agile, is a team builder and team protector, it ensure the cosy spirit needed for best realisations.
+
+<details><summary>responsabilities</summary>
 
 * **The Agile monk conducts the ceremonies**:
   * **Matins** With the POMO, the QAAT and the TAM.
@@ -412,17 +496,23 @@ The Monk Agile, is a team builder and team protector, it ensure the cosy spirit 
   * Make summary notes.
   * Velocity estimation.
   
+</details>
+
+## Environments
+
+DEV > DEMO > QAL >
+
+* **DEV** : localhost, on the developper host or development dedicated private environement (vm, remote server..).
+* **DEMO** : team remote host (vm, k8s service, servers) automated deployement of a feature for démo and unit validation.
+* **QALL** : team remote host automated deployement of integration develop branch or alpha release for acceptance tests and demo.
+* **PPD** : team remote host automated deployement of future release branch for pre production system tests.
+* **PROD** : public remote host automated deployement for production.
+
 ## Git Branchs
 
 * nomenclature : modification type / requirement-uid or version
   * ruid - requirement-uid github regexp : `[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+`
   * version - release version number github regexp : `[0-9]+.[0-9]+.[0-9]+`
-* environements :
-  * DEV : localhost, on the developper host or development dedicated private environement (vm, remote server..).
-  * DEMO : team remote host (vm, k8s service, servers) automated deployement of a feature for démo and unit validation.
-  * QA : team remote host automated deployement of integration develop branch or alpha release for acceptance tests and demo.
-  * PPD : team remote host automated deployement of future release branch for pre production system tests.
-  * PROD : public remote host automated deployement for production.
 
 | nomenclature  | usage | source branch | target branch | environments |
 |-------------- |-------|---------------|---------------|--------------|
@@ -431,17 +521,197 @@ The Monk Agile, is a team builder and team protector, it ensure the cosy spirit 
 | feature/ruid  | New feature development    | develop | develop | DEV, DEMO |
 | fix/ruid      | feature fix development    | develop | develop | DEV, DEMO |
 | refacto/ruid  | refactoring (iso functionalities) | develop | develop | DEV, DEMO |
-| security/ruid | security hardening of code | develop | develop | DEV, DEMO |
-| ci/ruid       | CI/CD developments         | develop | develop | DEV, DEMO, QA, PPD |
+| security/ruid | security hardening of code | develop, release/alpha | develop | DEV, DEMO, QAL |
+| perf/ruid     | Performance optimization   | develop, release | develop | DEV, DEMO, QAL |
+| ci/ruid       | CI/CD developments         | develop | develop | DEV, DEMO, QAL |
 | test/ruid     | tests automation           | develop | develop | DEV, DEMO |
 | dependabot/*  | Bot automated dependencies updates | develop | develop | DEV, DEMO |
 | renovate/*    | Bot automated project source updates | develop | develop | DEV, DEMO |
-| perf/ruid     | Performance optimization   | develop | develop | DEV, DEMO, PPD |
 | chlore/uid    | dependencies updates       | develop | develop | DEV, DEMO |
-| develop       | Integration branch, check all development works after merge | features, fix, docs, refactos.. | release/alpha | QA |
-| release/alpha | QA acceptance tests for release | release/alpha | security/version  | QA |
-| security/version | automated security hardening of code blocking developments or unit tests | security/version | release/version | QA, PPD |
+| develop       | Integration branch, check all development works after merge | features, fix, docs, refactos.. | release/alpha | QAL |
+| release/alpha | QAL acceptance tests for release | release/alpha | security/version  | QAL |
+| security/version | automated security hard. of code | security/version | release/version | QAL, PPD |
+| perf/version     | automated performance opti. of code | perf/version  | release/version | QAL, PPD |
 | release/version  | Maintainer System Tests | security/version | release/version | PPD  |
 | main             | production branch       | release/version | main + version tag |  PROD |
 | hotfix/ruid      | Hot fix of blocking bug in production | main | release/version and main + version tag | PPD |
 | *wip*            | Work in progress |  develop | develop | DEV |
+
+*some optimisation or security patch, may be not so practicle for development or unit tests (slow or complicated). So they are applied automaticly for acceptance and system testing*
+
+## **General Functional Specifications:**
+ 
+ <summary>Actors, Use Cases, CRC, Workflows:</summary>
+ 
+1. Business **Roles** & **Entities**.
+2. **Use Cases** diagrams and description.
+3. **Story boards**.
+4. **CRC** (Class, Responsibility, Collaborator) & **Sequence** diagrams.
+
+
+## **Technical Response**
+
+<summary>General Requirements, Epics, Choices & Specification:</summary>
+
+### **General Technical Requirements**.
+
+### **Main Epics**.
+
+The main epics will identifiy main subjects/parts of the final product.
+
+<details><summary>For an online shop, epics could be like this :</summary>
+
+* MODEL
+  * MODEL-USER
+  * MODEL-CATALOG
+  * MODEL-ARTICLE
+  * MODEL-STOCK
+  * MODEL-VENDOR
+  * MODEL-CLIENT
+  * MODEL-CMD
+  * MODEL-TRSPT
+* APIREST
+  * APIREST-USER
+  * APIREST-CATALOG
+  * APIREST-ARTICLE
+  * APIREST-STOCK
+  * APIREST-VENDOR
+  * APIREST-CLIENT
+  * APIREST-CMD
+  * APIREST-TRSPT
+* BACK
+  * BACK-USER
+  * BACK-LOGIN
+  * BACK-CATALOG
+  * BACK-ARTICLE
+  * BACK-STOCK
+  * BACK-VENDOR
+  * BACK-CLIENT
+  * BACK-CMD
+  * BACK-TRSPT
+* FRONT
+  * FRONT-LOGIN
+  * FRONT-CUSTOMER-CART
+  * FRONT-ARTICLE-VIEW
+  * FRONT-ARTICLES-LIST
+  * FRONT-CUSTOMER-CMD
+</summary>
+
+### **Technical choices strategy, tactic and criterias**.
+
+<summary>sample of basic criterias:</summary>
+
+1. Licence.
+2. Size of community.
+3. Recent Activity.
+4. Code Quality, security & best practices.
+5. Referenced by a fundation.
+6. Easy to use.
+7.  Efficiency.
+   
+### **Main technical bedrock : tools and instruments choices**.
+
+<details><summary>Langages, Frameworks, Data management, testing tools, hosts, measure instruments:</summary>
+
+1.  Programming **Langages** (PHP, Python, Java, Go, Rust, PlPGSQL, NoSQL, ECMAScript, TypeScript...).
+2.  **Frameworks** (Symfony, Django, Spring, Gin, Actix, NodeJS; VueJS, React, Angular...).
+3.  CMS, Applications, Librairies...
+4.  **Dependencies**, packet manager tools.
+5.  **Data management tools** (Databases, Brokers, Data Lakes ...)
+6.  **Hosting** (on promise, cloud, vm or container, os...)
+7.  **Testing tools** (Selenium, Fitness, Datadog, JMeter, Acunetix, Postman; Jest, Mocha, Cypress...)
+8.  **Linters, Code Quality Instruments** (SonarQube, Checkmarx...)
+</details>
+
+### **General Technical Specifications**.
+
+<details><summary>Entities, Use Cases, CRC, Workflows, Best Pratices:</summary>
+
+1.  Technical  **Roles** & **Entities**.
+2.  **Use Cases** diagrams and description.
+3.  **Components** diagrams and description.
+4.  **CRC** (Class, Responsibility, Collaborator) & **Sequence** diagrams.
+5.  **States** diagrams and description.
+6.  **Containerisation** or **virtualisation**.
+7.  **Mocking & delivery strategies and tactics**.
+8.  **Delivery workflows, dependencies managment**.
+9.  **Best Practices docs**.
+</details>
+
+## **Main Milestones**
+
+The milestone will fix goals, for exemple : having specifications, good work environement, technical bed rock with chooseen frameworks, application base with authentication and user management, first poc, first demo, version 1 with a minimal functional permimeter...
+
+<details><summary>The milestone acronyms might loook like : </summary>
+1. idp_base
+2. spec_base
+3. survey_inst
+4. mrktg_pres
+5. app_base
+6. app_poc
+7. mrktg_com
+8. app_demo
+9. app_v1
+10. app_v2
+</details>
+
+## DoR (Definition of Ready)
+
+The DoR will list all the requirements to considere task faisable & ready for development.
+The wall team must agree on a task DoR. The team and in particular de DEX teams should verify DoR prerequisites before any time, difficulty, risk of effort estimation.
+The DoR will fix all the elements that any kind of task need to have, before it is ready for implementation.
+If their is blur in specification, usually the blame goes to the developper or expert who took the task. That is unfair and demotivate the DEX teams.
+
+<details><summary>A DoR, could be:</summary>
+
+* Feature description is complete :
+  * Requirement & Specifications must be ready.
+  * Requirement uid selection should add :
+    * Ref & Link to RUID. 
+    * Related general specification version, chapter, section and **user story** link.
+    * Tests list and links.
+  * some fixtures and an example.
+  * there is no duplicatas
+  * resourses needed are accessible.
+* Ensure the developers got a good understanding of the new features.
+* Ensure there is no task duplicatas.
+* Estimate the difficulty level have been done by the DEX team & TAM.
+* Estimate the risks:
+  * New technology surprises.
+  * Dependencies to third parts.
+  * ...
+* Time and effort estimation have been done by the DEX team.
+* We have identifed and communicated about the impacted code areas.
+</details>
+
+
+## DoD (Definition of Done)
+
+The DoD we list all the requirements to set status at done.
+The wall team must agree on a task DoD. Each type of task should have an adapted DoD.
+The Merge Request and Merge and non regression on the develop branch could be asked for feature tasks.
+If you want to avoid a situation where quick and dirty merges give more benefits to quick and dirty developments and disavantage the rest of the team; you may prefere decorrelation between the feature or fix developement and its merge.
+The develop integration branch must be clean and working all sprint long.
+The feature realisation is judged without external updates.
+Conflicts resolution should not impact performance evaluation.
+Complex and clean developments can takes longer, the last who merge should not be the looser of the team.
+Conflicts resolution might be complex, in this context, amha it shoud be a separated task.
+
+<details><summary>One flow disgression</summary>
+On a oneflow with well decoupled microservices or alone, we may avoid conflicts by attributing code area responsablities. In this case, you might probalbly avoid many subtasks management and the DoD of features, fix, refacto may englob many many steps : Doc, Unit tests automation, Update before Merge Request and Non regression verification, passing all automated tests and quality code, code cleaning, security enforment, performance optimization...
+</details>
+
+<details><summary>A feature development task DoD in a monolitic Application with a big team, could be :</summary>
+
+1. The TAM is ok for technical specification.
+2. The feature codding started from updated develop branch.
+3. The PO is ok for the implementation functional result.
+4. The TAM is ok for the technical implementation and code documentation.
+5. With no further updates from develop, it is passing all the non regression tests.
+
+The TAM, merge the branch in develop and may open distinct tasks.
+</details>
+
+* Fix tasks might not need the technical specification step.
+* Refacto might need a risk evaluation step, or timing constraint and more testing.
+* Conflict DoD might include the validation of all implicated or impacted developpers.

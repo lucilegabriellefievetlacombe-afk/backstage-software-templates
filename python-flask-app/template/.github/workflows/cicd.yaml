@@ -1,4 +1,4 @@
-name: cicd
+name:  ${{values.uid}}-cicd
 
 on:
   push:
@@ -21,6 +21,7 @@ on:
       - 'release/[0-9]+.[0-9]+-alpha'
       - 'release/[0-9]+.[0-9]+.[0-9]+'
       - 'security/[0-9]+.[0-9]+.[0-9]+'
+      - 'perf/[0-9]+.[0-9]+.[0-9]+'
       - main
       - my_course_**
       - '!docs/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?'
@@ -62,19 +63,19 @@ jobs:
       - name: Check shorten commit id output
         shell: bash
         run: |
-          echo ${{needs.ci.outputs.commit_id}}
+          echo ${{'${{needs.ci.outputs.commit_id}}'}}'
 
       - uses: actions/checkout@v3
 
       - name: Modify our python app chart values file
         shell: bash
         run : |
-          sed -i 's/tag: ".*"/tag: "${{needs.ci.outputs.commit_id}}"/' charts/python-app/values.yaml
+          sed -i 's/tag: ".*"/tag: "${{'${{needs.ci.outputs.commit_id}}'}}"/' charts/python-app/values.yaml
 
       - name: Commit Changes
         uses: EndBug/add-and-commit@v9
         with:
-          message: 'upated image version for python-app chart ${{needs.ci.outputs.commit_id}}'
+          message: "upated image version for python-app chart ${{'${{needs.ci.outputs.commit_id}}'}} commit id"
 
       - name: Install argocd on our self runner
         shell: bash
@@ -90,7 +91,92 @@ jobs:
             --insecure  \
             --grpc-web \
             --username admin \
-            --password  ${{ secrets.ARGOCD_PASSWORD }}
+            --password  ${{'${{ secrets.ARGOCD_PASSWORD }}'}}
           argocd account get-user-info
           argocd app sync pyhton-app
+      
+      - name: Ensure DEV argocd repo and app
+        shell: bash
+        run: |
 
+          # Connects the argocd repo
+          repo="https://github.com/luspokvenus/${{values.uid}}.git"
+          argocd repo list | grep -q $repo || argocd repo add $repo
+
+          # Creates the argocd app
+          argocd app get ${{values.uid}} || argocd app create ${{values.uid}} \
+            --repo $repo \
+            --path charts/${{values.uid}} \
+            --dest-namespace dev \
+            --dest-server https://kubernetes.default.svc \
+            --values values-${{values.uid}}.yaml \
+            --revision master \
+            --sync-policy manual \
+            --sync-option CreateNamespace=true
+        on:
+          branches:
+            - 'poc/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - 'feature/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - 'fix/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - 'refacto/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - 'security/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - 'ci/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - 'test/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - 'dependabot/*'
+            - 'renovate/*'
+            - 'perf/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - 'chlore/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - develop
+
+      - name: Ensure PPD argocd repo and app
+        shell: bash
+        run: |
+
+          # Connects the argocd repo
+          repo="https://github.com/luspokvenus/${{values.uid}}.git"
+          argocd repo list | grep -q $repo || argocd repo add $repo
+
+          # Creates the argocd app
+          argocd app get ${{values.uid}} || argocd app create ${{values.uid}} \
+            --repo $repo \
+            --path charts/${{values.uid}} \
+            --dest-namespace ppd \
+            --dest-server https://kubernetes.default.svc \
+            --values values-${{values.uid}}.yaml \
+            --revision master \
+            --sync-policy manual \
+            --sync-option CreateNamespace=true
+        on:
+          branches:
+            - 'release/**'
+            - 'hotfix/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+            - 'security/[0-9]+.[0-9]+.[0-9]+'
+            - 'perf/[0-9]+.[0-9]+.[0-9]+'
+
+      - name: Ensure PROD argocd repo and app
+        shell: bash
+        run: |
+
+          # Connects the argocd repo
+          repo="https://github.com/luspokvenus/${{values.uid}}.git"
+          argocd repo list | grep -q $repo || argocd repo add $repo
+
+          # Creates the argocd app
+          argocd app get ${{values.uid}} || argocd app create ${{values.uid}} \
+            --repo $repo \
+            --path charts/${{values.uid}} \
+            --dest-namespace prod \
+            --dest-server https://kubernetes.default.svc \
+            --values values-${{values.uid}}.yaml \
+            --revision master \
+            --sync-policy manual \
+            --sync-option CreateNamespace=true
+        on:
+          branches:
+            - main
+
+      - name: Argocd app sync
+        shell: bash
+        run: |
+          argocd app sync ${{values.uid}}
+          argocd app wait ${{values.uid}} --timeout 180
