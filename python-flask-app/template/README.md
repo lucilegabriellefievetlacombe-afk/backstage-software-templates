@@ -595,19 +595,23 @@ The main epics will identifiy main subjects/parts of the final product.
   * FRONT-ARTICLE-VIEW
   * FRONT-ARTICLES-LIST
   * FRONT-CUSTOMER-CMD
-</summary>
+</details>
 
 ### **Technical choices strategy, tactic and criterias**.
 
-<summary>sample of basic criterias:</summary>
+Technical choices of the applicative stack is very important. If you rational and 
+pramgmatic choices, it is better to fix your priorities first, then the way you measure them.
+When you have you criterias, you can compare solutions.
 
-1. Licence.
-2. Size of community.
-3. Recent Activity.
+Sample of basic criterias:
+
+1. Licences you accept.
+2. Size of the community.
+3. Recent Activity show it still alive.
 4. Code Quality, security & best practices.
 5. Referenced by a fundation.
 6. Easy to use.
-7.  Efficiency.
+7. Efficiency.
    
 ### **Main technical bedrock : tools and instruments choices**.
 
