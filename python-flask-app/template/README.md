@@ -13,8 +13,8 @@
     - [**QAAT** - **Q**uality **A**ssement \& **A**cceptance **T**ests:](#qaat---quality-assement--acceptance-tests)
     - [**TAM** - **Technical**  **A**rchitect \& **M**aintainer:](#tam---technical--architect--maintainer)
     - [**DEX** - **D**evelopers **EX**perts:](#dex---developers-experts)
-    - [**GitOps** - **G**it**O**ps:](#gitops---gitops)
-    - [**SecOps** - **S**ec**O**ps:](#secops---secops)
+    - [**GitOps** - **G**it **O**ps:](#gitops---git-ops)
+    - [**SecOps** - **S**ecurity **O**ps:](#secops---security-ops)
     - [**AgileMonk** - **A**gile **M**onk:](#agilemonk---agile-monk)
   - [Environments](#environments)
   - [Git Branchs](#git-branchs)
@@ -404,7 +404,7 @@ Auto-organise in duo or trio mini task teams.
 
 </details>
 
-### **GitOps** - **G**it**O**ps:
+### **GitOps** - **G**it **O**ps:
 
 DevOps using gitlab, advocate and implement best practices.
 
@@ -422,7 +422,7 @@ DevOps using gitlab, advocate and implement best practices.
 
 </details>
 
-### **SecOps** - **S**ec**O**ps:
+### **SecOps** - **S**ecurity **O**ps:
 
 SecOps advocate and implement best security practices.
 
@@ -500,7 +500,7 @@ The Monk Agile, is a team builder and team protector, it ensure the cosy spirit 
 
 ## Environments
 
-DEV > DEMO > QAL >
+DEV > DEMO > QALIF > PPD > PROD
 
 * **DEV** : localhost, on the developper host or development dedicated private environement (vm, remote server..).
 * **DEMO** : team remote host (vm, k8s service, servers) automated deployement of a feature for démo and unit validation.
