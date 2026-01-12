@@ -37,23 +37,39 @@ spec:
           description: The environments where we deploy
           items:
             type: string
-            default: feat
+            default: main
             enum:
-              - feat
+              - poc
+              - feature
               - fix
               - refacto
-              - integ
-              - alpha
-              - hotfix
+              - security
+              - ci
+              - test
+              - dependabot
+              - renovate
+              - perf
+              - chlore
+              - develop
               - release
+              - hotfix
+              - main
             enumNames:
-              - 'feature_xxx branchs - from and to be merged in develop branch'
-              - 'fix_xxx branchs - from and to be merged in develop branch'
-              - 'refacto_xxx branchs - from and to be merged in develop branch'
-              - 'develop branch - uniq integration branch for QA Tests in QA env'
-              - 'pre-release version_X.Y.0-alpha branchs - from validated develop branch, for System Major or Minor Versions Tests in PPD'
-              - 'hotfix version_x.y.Z branchs - from last version branch, for Rapid System Patch Tests in PPD'
-              - 'main branch with release_x.y.z tags - from last validated version or hotfix branch in PROD'
+              - 'poc/ruid branchs - for Proof Of Concept (POC), recherche and faisability exploration'  
+              - 'feature/ruid branchs - new feature development (from and to be merged in develop branch)'
+              - 'fix/ruid branchs - for bug fix (from and to be merged in develop branch)'
+              - 'refacto/ruid branchs - for refactoring (from and to be merged in develop branch)'
+              - 'security/ruid branchs - for hardening (from and to be merged in develop branch or from alpha release to be merge in release)'
+              - 'ci/ruid branchs - for ci cd features and fix (from and to  be merged in develop branch and cherry picked in release branch)'
+              - 'test/ruid branchs - for test automation (from and to be merged in develop branch)' 
+              - 'dependabot - Bot automated dependencies updates'
+              - 'renovate - Bot automated project source updates'
+              - 'perf - for optimization tunning (from and to be merged in develop branch or from alpha release to be merge in release)'
+              - 'chlore - for dependencies updates (from and to be merged in develop branch)'
+              - 'develop uniq integration branch - for QA Acceptance Tests in QAL env (merge targed, except hotfix and late hardening or late tunning'
+              - 'pre-release/X.Y-alpha branchs - (from validated develop branch, for System Major or Minor Versions Tests in PPD, to be merged and tagged in main)'
+              - 'hotfix/x.y.Z branchs - for Rapid System Tests in PPD after hotfix (from last version branch, to be merged and tagged in main)'
+              - 'main uniq production branch -  with release_x.y.z tags - from last validated version or hotfix branch in PROD'
           uniqueItems: true
           ui:widget: checkboxes
         owner:
@@ -83,7 +99,7 @@ spec:
       action: publish:github
       input:
         description: This is ${{ parameters.name }}
-        repoUrl: github.com?owner=lucilegabriellefievetlacombe-afk&repo=${{parameters.component_id}}
+        repoUrl: github.com?owner=luspokvenus&repo=${{parameters.component_id}}
         defaultBranch: 'main'
         protectDefaultBranch: false
         repoVisibility: public

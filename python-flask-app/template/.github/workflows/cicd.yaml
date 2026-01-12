@@ -39,7 +39,7 @@ jobs:
         run: |
           github_sha_hash=${{'${{ github.sha }}'}}
           github_sha_short="${{'${github_sha_hash:0:7}'}}"
-          echo "COMMIT_ID=${{'${github_sha_short}'}}" >> "${{'$GITHUB_ENV'}}"
+          echo "COMMIT_ID=${github_sha_short}" >> "$GITHUB_ENV"
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -51,7 +51,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: luspokvenus/python-app:${{'${{ env.COMMIT_ID }}'}}
+          tags: luspokvenus/${{values.uid}}:${{'${{ env.COMMIT_ID }}'}}
 
     outputs:
       commit_id: ${{'${{ env.COMMIT_ID }}'}}
@@ -70,12 +70,16 @@ jobs:
       - name: Modify our python app chart values file
         shell: bash
         run : |
-          sed -i 's/tag: ".*"/tag: "${{'${{needs.ci.outputs.commit_id}}'}}"/' charts/python-app/values.yaml
+          sed -i 's/tag: ".*"/tag: "${{'${{needs.ci.outputs.commit_id}}'}}"/' charts/${{values.uid}}/values.yaml
+          sed -i 's/tag: ".*"/tag: "${{'${{needs.ci.outputs.commit_id}}'}}"/' charts/${{values.uid}}/values-${{values.uid}}-dev.yaml
+          sed -i 's/tag: ".*"/tag: "${{'${{needs.ci.outputs.commit_id}}'}}"/' charts/${{values.uid}}/values-${{values.uid}}-qual.yaml
+          sed -i 's/tag: ".*"/tag: "${{'${{needs.ci.outputs.commit_id}}'}}"/' charts/${{values.uid}}/values-${{values.uid}}-ppd.yaml
+          sed -i 's/tag: ".*"/tag: "${{'${{needs.ci.outputs.commit_id}}'}}"/' charts/${{values.uid}}/values-${{values.uid}}-dev.yaml
 
       - name: Commit Changes
         uses: EndBug/add-and-commit@v9
         with:
-          message: "upated image version for python-app chart ${{'${{needs.ci.outputs.commit_id}}'}} commit id"
+          message: "upated image version for ${{values.uid}} chart ${{'${{needs.ci.outputs.commit_id}}'}} commit id"
 
       - name: Install argocd on our self runner
         shell: bash
@@ -95,7 +99,7 @@ jobs:
           argocd account get-user-info
           argocd app sync pyhton-app
       
-      - name: Ensure DEV argocd repo and app
+      - name: Ensure evolutions argocd repo and app
         shell: bash
         run: |
 
@@ -107,10 +111,10 @@ jobs:
           argocd app get ${{values.uid}} || argocd app create ${{values.uid}} \
             --repo $repo \
             --path charts/${{values.uid}} \
-            --dest-namespace dev \
+            --dest-namespace ${{'${{ env.GITHUB_ACTOR_ID }}'}}_${{'${{ env.GITHUB_REF_NAME}}'}} \
             --dest-server https://kubernetes.default.svc \
-            --values values-${{values.uid}}.yaml \
-            --revision master \
+            --values values-${{values.uid}}-dev.yaml \
+            --revision ${{'${{ env.GITHUB_BASE_REF}}'}}_${{'${{ env.GITHUB_ACTOR_ID }}'}}_${{'${{ env.GITHUB_REF_NAME}}'}}_${{'${{ env.COMMIT_ID }}'}}\
             --sync-policy manual \
             --sync-option CreateNamespace=true
         on:
@@ -126,6 +130,28 @@ jobs:
             - 'renovate/*'
             - 'perf/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
             - 'chlore/[A-Z]+-[A-Z]+-[A-Z]+-[a-z]?[0-9]+'
+      
+
+      - name: Ensure DEV argocd repo and app
+        shell: bash
+        run: |
+
+          # Connects the argocd repo
+          repo="https://github.com/luspokvenus/${{values.uid}}.git"
+          argocd repo list | grep -q $repo || argocd repo add $repo
+
+          # Creates the argocd app
+          argocd app get ${{values.uid}} || argocd app create ${{values.uid}} \
+            --repo $repo \
+            --path charts/${{values.uid}} \
+            --dest-namespace qual \
+            --dest-server https://kubernetes.default.svc \
+            --values values-${{values.uid}}-qual.yaml \
+            --revision  ${{'${{ env.GITHUB_REF_NAME}}'}}_${{'${{ env.GITHUB_BASE_REF}}'}}_${{'${{ env.COMMIT_ID }}\
+            --sync-policy manual \
+            --sync-option CreateNamespace=true
+        on:
+          branches:
             - develop
 
       - name: Ensure PPD argocd repo and app
@@ -142,8 +168,8 @@ jobs:
             --path charts/${{values.uid}} \
             --dest-namespace ppd \
             --dest-server https://kubernetes.default.svc \
-            --values values-${{values.uid}}.yaml \
-            --revision master \
+            --values values-${{values.uid}}-ppd.yaml \
+            --revision ${{'${{ env.GITHUB_REF_NAME}}'}}_${{'${{ env.GITHUB_BASE_REF}}'}}_${{'${{ env.COMMIT_ID }}\
             --sync-policy manual \
             --sync-option CreateNamespace=true
         on:
@@ -167,8 +193,8 @@ jobs:
             --path charts/${{values.uid}} \
             --dest-namespace prod \
             --dest-server https://kubernetes.default.svc \
-            --values values-${{values.uid}}.yaml \
-            --revision master \
+            --values values-${{values.uid}}-prod.yaml \
+            --revision ${{'${{ env.GITHUB_BASE_REF}}'}} \
             --sync-policy manual \
             --sync-option CreateNamespace=true
         on:
