@@ -115,7 +115,7 @@ jobs:
             --dest-server https://kubernetes.default.svc \
             --values values-${{values.uid}}-dev.yaml \
             --revision ${{'${{ env.GITHUB_BASE_REF}}'}}_${{'${{ env.GITHUB_ACTOR_ID }}'}}_${{'${{ env.GITHUB_REF_NAME}}'}}_${{'${{ env.COMMIT_ID }}'}}\
-            --sync-policy manual \
+            --sync-policy auto \
             --sync-option CreateNamespace=true
         on:
           branches:
@@ -148,7 +148,7 @@ jobs:
             --dest-server https://kubernetes.default.svc \
             --values values-${{values.uid}}-qual.yaml \
             --revision  ${{'${{ env.GITHUB_REF_NAME}}'}}_${{'${{ env.GITHUB_BASE_REF}}'}}_${{'${{ env.COMMIT_ID }}\
-            --sync-policy manual \
+            --sync-policy auto \
             --sync-option CreateNamespace=true
         on:
           branches:
@@ -170,7 +170,7 @@ jobs:
             --dest-server https://kubernetes.default.svc \
             --values values-${{values.uid}}-ppd.yaml \
             --revision ${{'${{ env.GITHUB_REF_NAME}}'}}_${{'${{ env.GITHUB_BASE_REF}}'}}_${{'${{ env.COMMIT_ID }}\
-            --sync-policy manual \
+            --sync-policy auto \
             --sync-option CreateNamespace=true
         on:
           branches:
